@@ -25,7 +25,7 @@ SECRET_KEY = '$0gazq$b*cfr5ks$wy-q-kav@@r#u123#z^2619se(&prmwtu3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["13.232.59.217","mylb-1096646358.ap-south-1.elb.amazonaws.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -73,10 +73,20 @@ WSGI_APPLICATION = 'Mypro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#       'ENGINE': 'django.db.backends.sqlite3',
+#       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'localhost/orcl',
+        'USER': 'sys',
+        'PASSWORD': 'Oradoc_db1',
+        'HOST': '172.31.1.66',
+        'PORT': '1521'
     }
 }
 
